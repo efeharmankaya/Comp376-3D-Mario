@@ -1337,6 +1337,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1021219474}
     m_Modifications:
+    - target: {fileID: 3248056590657505299, guid: 5237e909208561b4a90d8e1eb4e61490,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 524b19cf72af34a4d910db01feceaa68, type: 2}
     - target: {fileID: 3248056591099592546, guid: 5237e909208561b4a90d8e1eb4e61490,
         type: 3}
       propertyPath: m_Name
@@ -3671,6 +3676,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1021219474}
     m_Modifications:
+    - target: {fileID: 3248056590657505299, guid: 5237e909208561b4a90d8e1eb4e61490,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 524b19cf72af34a4d910db01feceaa68, type: 2}
     - target: {fileID: 3248056591099592546, guid: 5237e909208561b4a90d8e1eb4e61490,
         type: 3}
       propertyPath: m_Name
@@ -5717,6 +5727,7 @@ MonoBehaviour:
   target: {fileID: 103646779}
   sensitivity: 100
   smoothing: 5
+  newRaycastPosition: {fileID: 0}
 --- !u!1001 &1951943982
 PrefabInstance:
   m_ObjectHideFlags: 0
