@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿// ------------------------------------------------------------------------------
+// Quiz
+// Written by: Efe Harmankaya - 40077277
+// For COMP 376 – Fall 2021
+// Controls the spin and floating of coins scattered around the world
+// -----------------------------------------------------------------------------
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
