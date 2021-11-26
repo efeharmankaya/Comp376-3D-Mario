@@ -8,6 +8,8 @@ TagManager:
   - Crate
   - Coin
   - RedCoin
+  - Thwomp
+  - Map
   layers:
   - Default
   - TransparentFX

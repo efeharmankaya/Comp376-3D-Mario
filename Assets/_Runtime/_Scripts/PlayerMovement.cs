@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private float speedBoostDelta = 5f;
     private float speedBoostDuration = 5f;
     private bool allowSpeedUp = true;
+    private bool allowGetHurt = true;
 
     private GameObject heart1, heart2, heart3;
     private void Start(){
@@ -127,24 +128,28 @@ public class PlayerMovement : MonoBehaviour
         controller.Move((movement * speed * Time.deltaTime) + (gravitationalForce * Time.deltaTime));
 
         if(Input.GetKeyDown(KeyCode.Alpha1)) // testing hurting mechanics
-            getHurt();
+            StartCoroutine(getHurt());
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         print(collision.collider.gameObject.name);
-        // if(collision.collider.gameObject.tag.Equals("Crate")){
-
-        // }
+        if(collision.collider.gameObject.tag.Equals("Thwomp")){
+            if(allowGetHurt)
+                StartCoroutine(getHurt());
+            print("***********");
+            print("DEAD");
+            print("***********");
+        }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        // print(collision.collider.gameObject.name);
-        // if(collision.collider.gameObject.tag.Equals("Crate") && Input.GetKeyDown(KeyCode.Mouse0)){
+    // private void OnCollisionStay(Collision collision)
+    // {
+    //     // print(collision.collider.gameObject.name);
+    //     // if(collision.collider.gameObject.tag.Equals("Crate") && Input.GetKeyDown(KeyCode.Mouse0)){
             
-        // }
-    }
+    //     // }
+    // }
 
     private void collectCoin(){
         coinsCollected++;
@@ -166,7 +171,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void getHurt(){
+    IEnumerator getHurt(){
+        allowGetHurt = false;
+        removeHealth();
+        yield return new WaitForSeconds(2f);
+
+        allowGetHurt = true;
+    }
+    void removeHealth(){
         switch(health){
             case 3:
                 heart1.SetActive(false);

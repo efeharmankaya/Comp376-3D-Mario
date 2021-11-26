@@ -60,7 +60,7 @@ public class PlayerCamera : MonoBehaviour
         if(Physics.Raycast(cameraTransform.position,cameraTransform.forward, out HitInfo, 100.0f)){
             Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 100.0f, Color.yellow);
             Transform objectHit = HitInfo.transform;
-            if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // center raycast hit is not the player
+            if(!HitInfo.collider.gameObject.tag.Equals("Player") && !HitInfo.collider.gameObject.tag.Equals("Thwomp")){ // center raycast hit is not the player or Thwomp trigger collider
                 mouseX += 2f;
             }
         }
@@ -73,7 +73,7 @@ public class PlayerCamera : MonoBehaviour
         if(Physics.Raycast(newRaycastPosition.position, newDir, out HitInfo, 100.0f)){
             Debug.DrawRay(newRaycastPosition.position, newDir * 100.0f, Color.red);
             Transform objectHit = HitInfo.transform;
-            if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // raycast hit is not the player
+            if(!HitInfo.collider.gameObject.tag.Equals("Player") && !HitInfo.collider.gameObject.tag.Equals("Thwomp")){ // raycast hit is not the player or Thwomp trigger collider
                 mouseX -= 1f;
             }
         }
@@ -85,7 +85,7 @@ public class PlayerCamera : MonoBehaviour
         if(Physics.Raycast(newRaycastPosition.position, newDir, out HitInfo, 100.0f)){
             Debug.DrawRay(newRaycastPosition.position, newDir * 100.0f, Color.red);
             Transform objectHit = HitInfo.transform;
-            if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // raycast hit is not the player
+            if(!HitInfo.collider.gameObject.tag.Equals("Player") && !HitInfo.collider.gameObject.tag.Equals("Thwomp")){ // raycast hit is not the player or Thwomp trigger collider
                 mouseX += 1f;
             }
         }
@@ -97,53 +97,10 @@ public class PlayerCamera : MonoBehaviour
         if(Physics.Raycast(newRaycastPosition.position, newDir, out HitInfo, 100.0f)){
             Debug.DrawRay(newRaycastPosition.position, newDir * 100.0f, Color.red);
             Transform objectHit = HitInfo.transform;
-            if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // raycast hit is not the player
+            if(!HitInfo.collider.gameObject.tag.Equals("Player") && !HitInfo.collider.gameObject.tag.Equals("Thwomp")){ // raycast hit is not the player or Thwomp trigger collider
                 mouseY -= 1f;
             }
         }
-
-        // // bottom center raycast
-        // newRaycastPosition = cameraTransform;
-        // newRaycastPosition.Translate(0f, -2f, 0f);
-        // newDir = Vector3.RotateTowards(newRaycastPosition.forward, target.transform.position - newRaycastPosition.position, 1f, 0f);
-        // if(Physics.Raycast(newRaycastPosition.position, newDir, out HitInfo, 100.0f)){
-        //     Debug.DrawRay(newRaycastPosition.position, newDir * 100.0f, Color.red);
-        //     Transform objectHit = HitInfo.transform;
-        //     if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // raycast hit is not the player
-        //         mouseY += 1f;
-        //     }
-        // }
-
-
-        // rightCenter = cameraTransform;
-        // rightCenter.Translate(0.5f, 0f, 0f);
-        // rightCenter.RotateTowards(target.transform);
-        // // right center raycast
-        // if(Physics.Raycast(rightCenter.position,rightCenter.forward, out HitInfo, 100.0f)){
-        //     Debug.DrawRay(rightCenter.position, rightCenter.forward * 100.0f, Color.red);
-        //     Transform objectHit = HitInfo.transform;
-        //     if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // raycast hit is not the player
-        //         mouseX += 1f;
-        //     }
-        // }
-
-        // // top center raycast
-        // if(Physics.Raycast(topCenter.position,topCenter.forward, out HitInfo, 100.0f)){
-        //     Debug.DrawRay(topCenter.position, topCenter.forward * 100.0f, Color.red);
-        //     Transform objectHit = HitInfo.transform;
-        //     if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // raycast hit is not the player
-        //         mouseY -= 1f;
-        //     }
-        // }
-
-        // // bottom center raycast
-        // if(Physics.Raycast(bottomCenter.position,bottomCenter.forward, out HitInfo, 100.0f)){
-        //     Debug.DrawRay(bottomCenter.position, bottomCenter.forward * 100.0f, Color.red);
-        //     Transform objectHit = HitInfo.transform;
-        //     if(!HitInfo.collider.gameObject.tag.Equals("Player")){ // raycast hit is not the player
-        //         mouseY += 1f;
-        //     }
-        // }
     }
 
     private void LateUpdate()
