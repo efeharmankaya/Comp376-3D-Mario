@@ -11737,6 +11737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 6871667996879204915, guid: ddc006e15a01edf48a7fb82e1847eab3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Flag
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc006e15a01edf48a7fb82e1847eab3, type: 3}
 --- !u!1001 &7702740114882860810

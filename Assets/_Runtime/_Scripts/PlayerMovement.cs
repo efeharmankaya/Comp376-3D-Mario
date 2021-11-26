@@ -185,6 +185,8 @@ public class PlayerMovement : MonoBehaviour
             print("red coin");
             collectCoin();
             Destroy(collider.gameObject);
+        }else if(collider.gameObject.tag.Equals("Flag")){
+            SceneManager.LoadScene("Assets/_Runtime/_Scenes/BombombBattlefield.unity");
         }
     }
 

@@ -12,6 +12,7 @@ TagManager:
   - Map
   - Bobomb
   - Boo
+  - Flag
   layers:
   - Default
   - TransparentFX

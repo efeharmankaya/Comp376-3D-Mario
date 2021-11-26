@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BooScript : MonoBehaviour
@@ -14,6 +15,7 @@ public class BooScript : MonoBehaviour
         if(index >= 13){
             print("DONE");
             awake = false;
+            SceneManager.LoadScene("Assets/_Runtime/_Scenes/BombombBattlefield.unity");
         }
         if(awake){
             Vector3 newPos = waypoints[index].position;
