@@ -36,6 +36,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\BobombScript.cs" />
+     <Compile Include="Assets\BooScript.cs" />
      <Compile Include="Assets\CoinSpin.cs" />
      <Compile Include="Assets\_Runtime\_Scripts\ColliderOwner.cs" />
      <Compile Include="Assets\_Runtime\_Scripts\PlayerCamera.cs" />

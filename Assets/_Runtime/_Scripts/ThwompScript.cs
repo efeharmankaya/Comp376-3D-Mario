@@ -45,13 +45,15 @@ public class ThwompScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider collider) {
-        if(collider.gameObject.tag.Equals("Player)")){
-            print("ROTATING");
-            Vector3 newDir = Vector3.RotateTowards(transform.forward, collider.gameObject.transform.position, 1f, 0f);
-            transform.Rotate(newDir);
-        }
-    }
+    // private void OnTriggerStay(Collider collider) {
+    //     if(collider.gameObject.tag.Equals("Player")){
+    //         print("ROTATING");
+    //         Vector3 newDir = Vector3.RotateTowards(transform.forward, collider.gameObject.transform.position - transform.position, 0.5f, 0f);
+    //         newDir.y = 0.0f;
+    //         // transform.rotation = Quaternion.LookRotation(newDir);
+    //         transform.rotation = new Quaternion(newDir.x, newDir.y, newDir.z, 0.0f);
+    //     }
+    // }
 
     private void OnCollisionEnter(Collision other) {
         // print("======");

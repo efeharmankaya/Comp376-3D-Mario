@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private int health = 3;
     private int coinsCollected = 0;
     public Text coinsText;
+    public Text startRaceText;
     private float speedBoostDelta = 5f;
     private float speedBoostDuration = 5f;
     private bool allowSpeedUp = true;
@@ -83,8 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         jumpMomentumCheck = jumpMomentumCheck && Input.GetButton("Jump") && !isGrounded;
-        // if(isGrounded)
-        //     animator.SetBool("Jump", false);
+
         // simulate gravity
         if (isGrounded)
         {
@@ -151,6 +151,23 @@ public class PlayerMovement : MonoBehaviour
     //     // }
     // }
 
+    private void OnTriggerStay(Collider other) {
+        if(other.gameObject.tag.Equals("Boo") && !GameObject.Find("Boo").GetComponent<BooScript>().awake){
+            print("in range of boo");
+            startRaceText.gameObject.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.E)){
+                startRaceText.gameObject.SetActive(false);
+                GameObject.Find("Boo").GetComponent<BooScript>().awake = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.gameObject.tag.Equals("Boo")){
+            startRaceText.gameObject.SetActive(false);
+        }
+    }
+
     private void collectCoin(){
         coinsCollected++;
         coinPickupSound.Play();
@@ -169,6 +186,11 @@ public class PlayerMovement : MonoBehaviour
             collectCoin();
             Destroy(collider.gameObject);
         }
+    }
+
+    public void PlayerDamage(){
+        if(allowGetHurt)
+            StartCoroutine(getHurt());
     }
 
     IEnumerator getHurt(){
